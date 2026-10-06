@@ -1,18 +1,16 @@
 class Solution {
     public int minAddToMakeValid(String s) {
-        int open = 0;
         int res = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if (ch == '(') {
-                open++;
-            } else {
-                if (open > 0) {
-                    open--;
-                } else res++;
+        int c = 0;
+        for(char ch: s.toCharArray()){
+            if(ch == '('){
+                c++;
+            }else {
+                if(c > 0){
+                    c--;
+                }else res++;
             }
         }
-
-        return res + open;
+        return c + res;
     }
 }
